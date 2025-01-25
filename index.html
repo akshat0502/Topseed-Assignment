@@ -7,49 +7,12 @@
     <link rel="stylesheet" href="style.css">
     <link rel="icon" href="login icon.png">
 </head>
-<body>
-    <div class="login-container">
-        <h2>Login</h2>
-        <div id="error" class="error-message"></div>
-        <form id="loginForm">
-            <div class="form-group">
-                <label for="username">Username:</label>
-                <input type="text" id="username" name="username" required placeholder="admin">
-            </div>
-            <div class="form-group">
-                <label for="password">Password:</label>
-                <input type="password" id="password" name="password" required placeholder="admin123">
-            </div>
-            <div class="form-group">
-                <button type="submit">Login</button>
-            </div>
-        </form>
-    </div>
-
-    <script>
-        const preSavedUser = {
-            username: 'admin',
-            password: 'admin123'
-        };
-
-        if (!localStorage.getItem('user')) {
-            localStorage.setItem('user', JSON.stringify(preSavedUser));
-        }
-
-        document.getElementById('loginForm').addEventListener('submit', function (e) {
-            e.preventDefault();
-
-            const username = document.getElementById('username').value;
-            const password = document.getElementById('password').value;
-
-            const savedUser = JSON.parse(localStorage.getItem('user'));
-
-            if (savedUser && username === savedUser.username && password === savedUser.password) {
-                window.location.href = 'dashboard.html';
-            } else {
-                document.getElementById('error').textContent = 'Invalid username or password!';
-            }
-        });
-    </script>
-</body>
+    <body>
+        <div class="container">
+        <h2>Welcome!</h2>
+        <p>Please sign in to continue or sign up to create a new account.</p>
+        <button onclick="window.location.href='signin.html'">Sign In</button>
+        <button onclick="window.location.href='signup.html'">Sign Up</button>
+      </div>
+    </body>
 </html>
