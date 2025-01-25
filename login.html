@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Logout</title>
+  <link rel="stylesheet" href="logout.css">
+</head>
+<body>
+  <div class="container">
+    <h2>Welcome Back!</h2>
+    <p id="userEmail"></p>
+    <button id="logoutButton">Logout</button>
+  </div>
+
+  <script>
+    const email = localStorage.getItem("email");
+    const password = localStorage.getItem("password");
+
+    const userEmailElement = document.getElementById("userEmail");
+    userEmailElement.innerText = `Signed in as: ${email}`;
+
+    const logoutButton = document.getElementById("logoutButton");
+
+    logoutButton.addEventListener("click", () => {
+      localStorage.removeItem("email");
+      localStorage.removeItem("password");
+
+      window.location.href = "signin.html";
+    });
+  </script>
+</body>
+</html>
